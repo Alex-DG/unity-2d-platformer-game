@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         extaJumps = extaJumpValue;
         originalScale = transform.localScale;
         isDying = false;
-        
+
         // Initialize falling detection
         highestYPosition = transform.position.y;
         hasReachedGround = true;
@@ -155,21 +155,21 @@ public class Player : MonoBehaviour
         if (isDying) return;
 
         float currentY = transform.position.y;
-        
+
         // Update highest position when player goes up
         if (currentY > highestYPosition)
         {
             highestYPosition = currentY;
             hasReachedGround = false; // Player is climbing, reset ground status
         }
-        
+
         // When player becomes airborne, record the starting position
         if (!isGrounded && hasReachedGround)
         {
             fallStartY = currentY;
             hasReachedGround = false;
         }
-        
+
         // Check if player has reached ground after falling
         if (isGrounded && !hasReachedGround)
         {
@@ -177,18 +177,18 @@ public class Player : MonoBehaviour
             // Reset the highest position to current position when landing
             highestYPosition = currentY;
         }
-        
+
         // Check fall distance when player is airborne
         if (!isGrounded && !hasReachedGround)
         {
             float fallDistance = highestYPosition - currentY;
             float simpleFallDistance = fallStartY - currentY;
-            
+
             // Use the larger of the two fall distances for more robust detection
             float actualFallDistance = Mathf.Max(fallDistance, simpleFallDistance);
-            
+
             // Check against both minimum and maximum fall distances
-            if (actualFallDistance > maxFallDistance || 
+            if (actualFallDistance > maxFallDistance ||
                 (actualFallDistance > minFallDistance && highestYPosition - fallStartY < 2f)) // Low platform fall
             {
                 Die();
@@ -254,7 +254,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // reload scene (fresh instance restores original scale)
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     #endregion
 }
