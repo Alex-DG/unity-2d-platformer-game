@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public float jumpForce = 10f;
     public float groundCheckRadius = 0.2f;
     public float deathShrinkDuration = 0.25f; // seconds
+    public float maxFallDistance = 10f; // Maximum distance player can fall before dying
+    public float minFallDistance = 5f; // Minimum fall distance that always triggers death (for low platforms)
 
     public int extaJumpValue = 1;
     public int health = 100;
@@ -36,6 +38,11 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    // Falling detection variables
+    private float highestYPosition;
+    private bool hasReachedGround;
+    private float fallStartY; // Y position when player started falling
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,6 +52,10 @@ public class Player : MonoBehaviour
         extaJumps = extaJumpValue;
         originalScale = transform.localScale;
         isDying = false;
+        
+        // Initialize falling detection
+        highestYPosition = transform.position.y;
+        hasReachedGround = true;
     }
 
 
@@ -129,6 +140,7 @@ public class Player : MonoBehaviour
         UpdateVelocity();
         UpdateAnimation();
         UpdateHealth();
+        CheckForFall();
     }
 
     private void FixedUpdate()
@@ -138,6 +150,52 @@ public class Player : MonoBehaviour
     #endregion
 
     #region States
+    private void CheckForFall()
+    {
+        if (isDying) return;
+
+        float currentY = transform.position.y;
+        
+        // Update highest position when player goes up
+        if (currentY > highestYPosition)
+        {
+            highestYPosition = currentY;
+            hasReachedGround = false; // Player is climbing, reset ground status
+        }
+        
+        // When player becomes airborne, record the starting position
+        if (!isGrounded && hasReachedGround)
+        {
+            fallStartY = currentY;
+            hasReachedGround = false;
+        }
+        
+        // Check if player has reached ground after falling
+        if (isGrounded && !hasReachedGround)
+        {
+            hasReachedGround = true;
+            // Reset the highest position to current position when landing
+            highestYPosition = currentY;
+        }
+        
+        // Check fall distance when player is airborne
+        if (!isGrounded && !hasReachedGround)
+        {
+            float fallDistance = highestYPosition - currentY;
+            float simpleFallDistance = fallStartY - currentY;
+            
+            // Use the larger of the two fall distances for more robust detection
+            float actualFallDistance = Mathf.Max(fallDistance, simpleFallDistance);
+            
+            // Check against both minimum and maximum fall distances
+            if (actualFallDistance > maxFallDistance || 
+                (actualFallDistance > minFallDistance && highestYPosition - fallStartY < 2f)) // Low platform fall
+            {
+                Die();
+            }
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Damage")

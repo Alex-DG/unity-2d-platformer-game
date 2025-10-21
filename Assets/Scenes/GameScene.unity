@@ -5768,6 +5768,8 @@ MonoBehaviour:
   jumpForce: 10
   groundCheckRadius: 0.2
   deathShrinkDuration: 0.25
+  maxFallDistance: 10
+  minFallDistance: 10
   extaJumpValue: 1
   health: 100
   coins: 0
