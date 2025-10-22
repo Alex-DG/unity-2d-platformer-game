@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     public int health = 100;
     public int coins = 0;
 
+    public AudioClip jumpClip;
+    public AudioClip hurtClip;
+
     public Transform groundCheck;
 
     public LayerMask groundLayer;
@@ -38,6 +41,8 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    private AudioSource audioSource;
+
     // Falling detection variables
     private float highestYPosition;
     private bool hasReachedGround;
@@ -48,6 +53,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         extaJumps = extaJumpValue;
         originalScale = transform.localScale;
@@ -57,7 +63,6 @@ public class Player : MonoBehaviour
         highestYPosition = transform.position.y;
         hasReachedGround = true;
     }
-
 
     #region Updates
     private void UpdateHealth()
@@ -124,12 +129,13 @@ public class Player : MonoBehaviour
             if (isGrounded)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                PlaySFX(jumpClip, 0.7f);
             }
             else if (extaJumps > 0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 extaJumps--;
-
+                PlaySFX(jumpClip, 0.7f);
             }
 
         }
@@ -200,6 +206,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Damage")
         {
+            PlaySFX(hurtClip);
             health -= 25;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             StartCoroutine(BlinkRed());
@@ -219,9 +226,7 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-
     #region Interface
-
     private IEnumerator BlinkRed()
     {
         spriteRenderer.color = Color.red;
@@ -255,6 +260,15 @@ public class Player : MonoBehaviour
 
         // reload scene (fresh instance restores original scale)
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    #endregion
+
+    #region SFX/Audio
+    public void PlaySFX(AudioClip audioClip, float volume = 1f)
+    {
+        audioSource.clip = audioClip;
+        audioSource.volume = volume;
+        audioSource.Play();
     }
     #endregion
 }

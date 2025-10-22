@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Damage
+  - Coin
   layers:
   - Default
   - TransparentFX

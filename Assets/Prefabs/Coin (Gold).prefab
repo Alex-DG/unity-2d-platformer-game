@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2406292729132202914}
   m_Layer: 0
   m_Name: Coin (Gold)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c93809b8b1acd4fa5743b75610b5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
+  coinClip: {fileID: 8300000, guid: 4810b5971951446d2ba39f367a2dc2d6, type: 3}
 --- !u!61 &2406292729132202914
 BoxCollider2D:
   m_ObjectHideFlags: 0
