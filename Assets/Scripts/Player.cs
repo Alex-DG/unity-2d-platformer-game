@@ -67,7 +67,10 @@ public class Player : MonoBehaviour
     #region Updates
     private void UpdateHealth()
     {
-        healthImage.fillAmount = health / 100f;
+        if (healthImage != null)
+        {
+            healthImage.fillAmount = health / 100f;
+        }
     }
 
     private void UpdateAnimation()
@@ -266,9 +269,12 @@ public class Player : MonoBehaviour
     #region SFX/Audio
     public void PlaySFX(AudioClip audioClip, float volume = 1f)
     {
-        audioSource.clip = audioClip;
-        audioSource.volume = volume;
-        audioSource.Play();
+        if (audioSource != null && audioClip != null)
+        {
+            audioSource.clip = audioClip;
+            audioSource.volume = volume;
+            audioSource.Play();
+        }
     }
     #endregion
 }
