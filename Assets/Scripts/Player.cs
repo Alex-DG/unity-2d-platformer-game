@@ -1,5 +1,6 @@
 using System.Collections;
 using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem; // New Input System
 using UnityEngine.SceneManagement;
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
     public float maxFallDistance = 10f; // Maximum distance player can fall before dying
     public float minFallDistance = 5f; // Minimum fall distance that always triggers death (for low platforms)
 
-    public int extaJumpValue = 1;
+    public int extraJumpValue = 1;
     public int health = 100;
     public int coins = 0;
 
@@ -30,7 +31,8 @@ public class Player : MonoBehaviour
 
     private float moveInput; // -1..1
 
-    private int extaJumps;
+    private int extraJumps;
+    private bool hasPowerJump = false; // Track if player has a power jump available
 
     private Vector3 originalScale;
 
@@ -55,7 +57,7 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
 
-        extaJumps = extaJumpValue;
+        extraJumps = extraJumpValue;
         originalScale = transform.localScale;
         isDying = false;
 
@@ -123,7 +125,7 @@ public class Player : MonoBehaviour
 
         if (isGrounded)
         {
-            extaJumps = extaJumpValue;
+            extraJumps = extraJumpValue;
         }
 
         if (k.spaceKey.wasPressedThisFrame)
@@ -134,10 +136,17 @@ public class Player : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 PlaySFX(jumpClip, 0.7f);
             }
-            else if (extaJumps > 0)
+            else if (extraJumps > 0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                extaJumps--;
+                extraJumps--;
+                PlaySFX(jumpClip, 0.7f);
+            }
+            else if (hasPowerJump)
+            {
+                // Use the power jump from watermelon
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                hasPowerJump = false;
                 PlaySFX(jumpClip, 0.7f);
             }
 
@@ -158,7 +167,16 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    #region States
+    #region Collision
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "waterMelon")
+        {
+            hasPowerJump = true;
+            Destroy(collision.gameObject);
+        }
+    }
     private void CheckForFall()
     {
         if (isDying) return;

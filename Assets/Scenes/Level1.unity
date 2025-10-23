@@ -7041,6 +7041,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749470896}
   m_CullTransparentMesh: 1
+--- !u!1001 &1759842098
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 402400281638423996, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_Name
+      value: waterMelon (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
 --- !u!1 &1784294542
 GameObject:
   m_ObjectHideFlags: 0
@@ -7774,6 +7831,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &1337475185013312867
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 402400281638423996, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_Name
+      value: waterMelon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874324220408123790, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8d7a37ac0f9d58c4fbeecbcd8364c7c1, type: 3}
 --- !u!212 &2507146429306538186
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8042,7 +8156,7 @@ MonoBehaviour:
   deathShrinkDuration: 0.25
   maxFallDistance: 20
   minFallDistance: 20
-  extaJumpValue: 1
+  extraJumpValue: 1
   health: 100
   coins: 0
   jumpClip: {fileID: 8300000, guid: 0121a659315624d7a96e98abd2d2a16d, type: 3}
@@ -8157,3 +8271,5 @@ SceneRoots:
   - {fileID: 432201660}
   - {fileID: 39559999}
   - {fileID: 158195007}
+  - {fileID: 1337475185013312867}
+  - {fileID: 1759842098}
