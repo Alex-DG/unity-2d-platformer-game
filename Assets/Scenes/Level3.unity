@@ -3324,6 +3324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NextLevel
   nextLevelName: Level1
+  nextLevelValue: 0
 --- !u!1 &1567313782
 GameObject:
   m_ObjectHideFlags: 0
@@ -4021,6 +4022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NextLevel
   nextLevelName: Level2
+  nextLevelValue: 0
 --- !u!114 &1816407158
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2131,6 +2131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NextLevel
   nextLevelName: Level2
+  nextLevelValue: 2
 --- !u!114 &583658090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5875,6 +5876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NextLevel
   nextLevelName: Level2
+  nextLevelValue: 0
 --- !u!114 &1209999908
 MonoBehaviour:
   m_ObjectHideFlags: 0
